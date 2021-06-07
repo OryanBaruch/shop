@@ -1,0 +1,41 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    justify-self: center;
+    align-items: center;
+}
+
+mat-form-field{
+    margin-bottom: 1rem;
+    width: 15vw;
+}
+
+mat-card:hover{
+    background-color: rgba(245, 245, 245, 0.8);
+    transition: 0.3s;
+}
+
+mat-card{
+    margin-top: 3em;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    justify-self: center;
+    align-items: center;
+    background-color:rgba(91, 21, 255, 0.179);
+}
+
+.form__container{
+    margin-bottom: 5em !important;
+    background-image: url('https://mewallpaper.com/thumbnail/abstract/3874-grid-hexagonal-white-hd-download-hq-wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 82vh;
+}
+
+h1{
+    font-weight: bold;
+    font-family: serif;
+    font-size: xx-large;
+}

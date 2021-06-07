@@ -1,0 +1,23 @@
+1.open 2 diffrent terminals and npm i to install node moudles
+cd client, cd server
+
+for server:
+1.the the initDB method out from the comment out.
+2.nodemon the server
+3.make sure that in the compass you got 3 schemas 
+(user, prodcuts, categories.)
+4.return the initDB method to comment.
+
+client:
+make sure your on cd client, then ng s -o
+
+admin details:
+email:admin@gmail.com
+password:admin
+
+Project is also linked in my git !
+
+https://github.com/OryanBaruch/shop
+
+Enjoy.
+

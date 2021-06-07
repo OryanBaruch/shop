@@ -1,0 +1,13 @@
+<div class="search">
+  <div class="buttons">
+    <mat-search-bar (keyup)="ProductService.handleSearch($event)">
+    </mat-search-bar>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="AuthService.handleLogout()"
+    >
+      Logout
+    </button>
+  </div>
+</div>

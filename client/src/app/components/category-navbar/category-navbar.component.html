@@ -1,0 +1,12 @@
+<nav mat-tab-nav-bar mat-stretch-tabs >
+    <a
+      mat-tab-link
+      ngClass="category__buttons"
+      *ngFor="let category of ProductService.categories"
+      [id]="category._id"
+      [active]="ProductService.activeNavLink== category._id"
+      (click)="fetchProductsByCategory(category._id)"
+    >
+      {{ category.name }}
+    </a>
+  </nav>

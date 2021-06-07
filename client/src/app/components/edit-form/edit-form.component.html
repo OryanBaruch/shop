@@ -1,0 +1,41 @@
+<mat-card>
+  <form [formGroup]="myForm" (ngSubmit)="handleEdit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Name:</mat-label>
+      <input matInput placeholder="new name..." formControlName="name" />
+      <mat-hint>Edit product name</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Category:</mat-label>
+      <mat-select ngClass="select" formControlName="category">
+        <mat-option
+          *ngFor="let category of ProductService.categories"
+          [value]="category._id"
+        >
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Price:</mat-label>
+      <input
+        type="number"
+        matInput
+        placeholder="new name..."
+        formControlName="price"
+      />
+      <mat-hint>Change price</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Photo:</mat-label>
+      <input matInput placeholder="new name..." formControlName="photo_url" />
+      <mat-hint>Edit image of product</mat-hint>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" mat-dialog-close>
+      Change
+    </button>
+  </form>
+</mat-card>

@@ -1,0 +1,74 @@
+<div class="form__container">
+  <form [formGroup]="myForm" ngClass="form">
+    <mat-card>
+      <mat-form-field appearance="outline" (dblclick)="dblFetchCity()">
+        <mat-label>City:</mat-label>
+        <mat-hint>Double click to fetch your city</mat-hint>
+        <mat-select ngClass="select" formControlName="city">
+          <mat-option value="" selected disabled></mat-option>
+          <mat-option *ngFor="let city of cities" [value]="city.name">
+            {{ city.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="myForm.controls.city.errors?.required"
+          >City must be provided
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Street</mat-label>
+        <input
+          matInput
+          placeholder="Enter street.."
+          formControlName="street"
+          (dblclick)="dblFetchStreet()"
+        />
+        <mat-hint>Double click to fetch your street</mat-hint>
+        <mat-error *ngIf="myForm.controls.street.errors?.required"
+          >Street must be provided</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance='outline'>
+        <mat-label>Date</mat-label>
+        <input ngClass='date_input' matInput [matDatepicker]="date" [min]="minDate" formControlName='date_of_delivery' />
+        <mat-datepicker-toggle [for]="date" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #date></mat-datepicker>
+        <mat-error
+        *ngIf="
+          myForm.controls.date_of_delivery.errors?.required 
+        "
+        >Must insert a date.</mat-error
+      >
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label ngClass="mat-label-credit-card"
+          >****_****_****_****</mat-label
+        >
+        <input
+          matInput
+          placeholder="Enter credit cart."
+          formControlName="credit_card"
+        />
+        <mat-hint>Minimum 12 digits.</mat-hint>
+        <mat-error *ngIf="myForm.controls.credit_card.errors?.required"
+          >Card must be provided</mat-error
+        >
+        <mat-error *ngIf="myForm.controls.credit_card.errors?.pattern"
+          >Numbers only</mat-error
+        >
+      </mat-form-field>
+      <button
+        class="checkout_button"
+        mat-raised-button
+        color="primary"
+        (click)="handleCheckout(cartID)"
+        [disabled]="myForm.invalid"
+      >
+        Checkout
+      </button>
+    </mat-card>
+  </form>
+</div>

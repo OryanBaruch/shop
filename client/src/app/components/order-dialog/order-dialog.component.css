@@ -1,0 +1,13 @@
+.container{
+    width: 20vw;
+    height: 15vh;
+}
+
+a{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+button{
+    margin-top: 1.5em;
+}

@@ -1,0 +1,3 @@
+GET http://localhost:4500/products
+
+GET http://localhost:4500/category/

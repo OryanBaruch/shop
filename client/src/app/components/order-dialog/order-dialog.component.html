@@ -1,0 +1,9 @@
+<mat-dialog-content
+ngClass='container'
+  >
+  <mat-dialog-actions>
+      Your order has been sent, click
+      <a href="/homepage"> here </a> to resume shopping.
+    </mat-dialog-actions>
+    <button mat-raised-button color='primary' (click)='OrderService.getOrderReceptionFile("order.text")'>Download Recipt</button>
+</mat-dialog-content>

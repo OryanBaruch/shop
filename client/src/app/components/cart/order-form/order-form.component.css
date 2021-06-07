@@ -1,0 +1,36 @@
+.form__container{
+    margin-top: 3em;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    justify-self: center;
+    align-items: center;
+    width: 30vw;
+}
+
+mat-card{
+margin-top: 3em;
+display: flex;
+flex-direction: column;
+padding: 30px;
+justify-self: center;
+align-items: center;
+width: 35vw;
+box-shadow: 15px 15px 15px 15px grey;
+background-color: rgba(255, 255, 255, 0.678);
+}
+
+.mat-label-credit-card{
+    display: flex;
+    justify-content: center;
+}
+
+.checkout_button{
+    margin-top: 1em;
+    width: 25vw !important;
+    height: 6vh;
+}
+
+mat-form-field{
+    width: 15vw;
+}

@@ -1,0 +1,21 @@
+<div class="orderContainer">
+  <div class="orderList">
+    <div class="buttons">
+
+      <button mat-flat-button color="primary" (click)="redirectHome()">
+        Previous Page
+      </button>
+      <button
+      mat-flat-button
+      color="primary"
+      (click)="AuthService.handleLogout()"
+      >
+      Logout
+    </button>
+  </div>
+    <app-order-item></app-order-item>
+  </div>
+  <div class="form">
+    <app-order-form></app-order-form>
+  </div>
+</div>

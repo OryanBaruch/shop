@@ -1,0 +1,71 @@
+<div ngClass="form__container">
+  <mat-card>
+    <form ngClass="form" [formGroup]="myForm" (ngSubmit)="handleSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email..." formControlName="email" />
+        <mat-icon matSuffix> login </mat-icon>
+        <mat-hint>Enter your email</mat-hint>
+        <mat-error *ngIf="myForm.controls.email.invalid"
+          >Email must be provided</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="password.." formControlName="password" />
+        <mat-icon matSuffix> vpn_key </mat-icon>
+        <mat-hint>Enter your password</mat-hint>
+        <mat-error *ngIf="myForm.controls.password.errors?.required"
+          >Password must be provided</mat-error
+        >
+        <mat-error *ngIf="myForm.controls.password.errors?.minlength"
+          >Password must at least 3 characters</mat-error
+        >
+      </mat-form-field>
+
+      <button
+        mat-flat-button
+        type="submit"
+        color="primary"
+        ngClass='button'
+        [disabled]="myForm.invalid"
+        >
+        Login
+      </button>
+      <button
+      mat-flat-button
+      color="primary"
+      routerLink="/homepage"
+      ngClass='start__shopping'
+      [disabled]="!AuthServiceService.loggedIn()"
+      >
+        Start shopping
+      </button>
+      <p>
+        Don't have an account yet? <a routerLink="/register-start">Register</a>
+      </p>
+    </form>
+  </mat-card>
+  <div class="about__us">
+    <h1 ngClass='about_us_content'><strong> About us: </strong></h1>
+    <p ngClass='about_us_content'>
+      E-shop has started its journey in 2020, because is Covid times, We have beeen exposed to the fact
+      You do not have to leave your bed to purchase the best and most cheap Electroincs can find.
+      Thats why we listened to the needs of the people, and open E-shop.
+    </p>
+    <img src="https://logodix.com/logo/1783926.png" alt="shop">
+  </div>
+  <div class="shoppoing_cart_alert">
+    <h1><strong> Shpping cart data and date: </strong></h1>
+    Item in shop: {{ProductService.products.length}}
+    <br>
+    Orders from shop : {{OrderSerivce.ordersFromShop}}
+    <span *ngIf="CartServise?.my_cart.active">
+      <h3><strong>
+        Hey {{AuthServiceService.userInfo.first_name}}
+      </strong></h3>
+      You have an open cart from {{CartServise.my_cart.date | date}}
+    </span>
+  </div>
+</div>

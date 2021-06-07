@@ -1,0 +1,42 @@
+<h1><strong>My cart: </strong></h1>
+<div ngClass='sideBar_conatiner' *ngIf="AuthService.userInfo?.Role==false; else elseBlock">
+<mat-card class="sidebar__header">
+  <button mat-flat-button color="primary" (click)="handleClearCart(cartID)">
+    Clear cart
+  </button>
+</mat-card>
+  <div class="order">
+    <button mat-flat-button color="primary" ngClass='order' (click)="handleOrder()">Order</button>
+  </div>
+
+    <mat-card
+    class="my_cart_container"
+    *ngFor="let value of CartService.shoppingCartProducts"
+    [id]="value.cartID"
+    >
+    <div class="item_details">
+      <h4><strong>Product:</strong> {{ value.product.name }}</h4>
+      <h4><strong>Amount: </strong> {{ value.amount }}</h4>
+      <h4><strong>Price: </strong> {{ value.product.price }}</h4>
+      <h4><strong>Sum:</strong> {{ value.amount * value.product.price }} $</h4>
+      <img
+      ngClass="product_image"
+      src="{{ value.product.photo_url }}"
+      alt="productImage"
+      />
+      <mat-icon
+      ngClass="delete_icon"
+      matSuffix
+      (click)="handleDelete(value.product._id)"
+      >
+      delete
+    </mat-icon>
+  </div>
+</mat-card>
+<mat-card ngClass='footer'>
+  <h3><strong> sum of cart: {{CartService.totalSum}} $</strong></h3>
+</mat-card>
+</div>
+<ng-template class="adminForm" #elseBlock>
+  <app-admin-form></app-admin-form>
+</ng-template>

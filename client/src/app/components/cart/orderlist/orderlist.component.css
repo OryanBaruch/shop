@@ -1,0 +1,22 @@
+.orderList{
+    border-radius: 5% 15% 565%;
+    background-color: rgba(170, 235, 255, 0.582);
+    width: 30%;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form{
+    width: 29vw;
+}
+
+.orderContainer{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(151, 175, 255, 0.216);
+    height: 83vh;
+}
+

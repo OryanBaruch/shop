@@ -1,0 +1,59 @@
+<div ngClass="form__container">
+  <form
+    ngClass="form"
+    [formGroup]="myForm"
+    (ngSubmit)="handleRegisterPartTwo()"
+  >
+    <h1><strong>Last step before become a member of the family</strong></h1>
+    <mat-card>
+      <mat-hint>Enter your name</mat-hint>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name..." formControlName="first_name" />
+        <mat-icon matSuffix> face </mat-icon>
+        <mat-error *ngIf="myForm.controls.first_name.errors?.required"
+          >name must be provided</mat-error
+        >
+      </mat-form-field>
+
+      <mat-hint>Enter your family name</mat-hint>
+      <mat-form-field appearance="outline">
+        <mat-label>Family name</mat-label>
+        <input matInput placeholder="Last name.." formControlName="last_name" />
+        <mat-icon matSuffix> face </mat-icon>
+        <mat-error *ngIf="myForm.controls.last_name.errors?.required"
+          >Last must be provided
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-select ngClass="select" formControlName="city">
+          <mat-option value="" selected disabled>Choose city</mat-option>
+          <mat-option *ngFor="let city of cities" [value]="city.name">
+            {{ city.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Street</mat-label>
+        <input matInput placeholder="Enter strret.." formControlName="street" />
+        <mat-icon matSuffix> house </mat-icon>
+        <mat-hint>Insert street</mat-hint>
+        <mat-error *ngIf="myForm.controls.street.errors?.required"
+          >Street must be provided</mat-error
+        >
+      </mat-form-field>
+
+      <button
+        mat-flat-button
+        type="submit"
+        color="primary"
+        [disabled]="myForm.invalid"
+      >
+        Register
+      </button>
+      <p> To change previues data <a routerLink="/register-start">Back</a></p>
+    </mat-card>
+  </form>
+</div>

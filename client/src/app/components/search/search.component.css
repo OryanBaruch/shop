@@ -1,0 +1,14 @@
+input{
+    width: 25em;
+    height: 3em;
+    background-color: white;
+    border: none;
+    border-radius: 5%;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 10vw;
+}

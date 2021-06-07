@@ -1,0 +1,172 @@
+[19:24, 17.1.2021] Oryan Baruch: Daf n et Project number 4- server side MongoDB:
+
+6 schemas in total
+1:Collection: Cusmuter/Mannager - -
+-----------------------
+*ID automaticly created
+a.first_name-string
+b.last_name-string
+c.Email-string 
+d.ID-number-(ref)-  
+e.password:number
+f.city:string
+g.Street:string
+*H.Role true/false 0/1 1/2 'admin'/'user'
+
+2:Collection: Category:--
+---------------------------
+nameOfCatagory:String 
+*ID automaticly created
+a.(example: nameOfCatagory:vegatables)
+
+3:Collection: Product:--
+---------------------------
+*ID automaticly created
+a.name: string (Carrots)
+b.REF to categorie:{
+type:Schemas.Types.ObjectID,
+ref:'Category'  (line 15)
+}
+c.price :number
+d.PhotoUrl :string
+
+4:Collection: ShoppingCart :--
+------------------------------
+*ID automaticly created
+a.Cusm…
+[20:08, 17.1.2021] Oryan Baruch: Daf n et Project number 4- server side MongoDB:
+
+6 schemas in total
+1:Collection: Cusmuter/Mannager - -
+-----------------------
+*ID automaticly created
+a.first_name-string
+b.last_name-string
+c.Email-string 
+d.ID-number-(ref)-  
+e.password:number
+f.city:string
+g.Street:string
+*H.Role true/false 0/1 1/2 'admin'/'user'
+
+2:Collection: Category:--
+---------------------------
+nameOfCatagory:String 
+*ID automaticly created
+a.(example: nameOfCatagory:vegatables)
+
+3:Collection: Product:--
+---------------------------
+*ID automaticly created
+a.name: string (Carrots)
+b.REF to categorie:{
+type:Schemas.Types.ObjectID,
+ref:'Category'  (line 15)
+}
+(take the id of Category)
+c.price :number
+d.PhotoUrl :string
+
+4:Collection: ShoppingCart :--
+------------------------------
+*ID automaticly created
+a.CusmuterID-card:{
+    type:Schemas.Types.ObjectID,
+    ref:'Cusmuter/Mannager'
+}
+b.date:Date.now()
+
+5:Collection: ShoppingCart-Products :--
+-------------------------------------------
+*ID automaticly created
+a.Product:{
+    type:Schemas.Types.ObjectID,
+    ref:'Product'
+}
+b.Amount:Number
+c.price{
+    type:Schemas.Types.ObjectID,
+    ref:'Product',
+    (in The populate filter the price)
+}
+d.ShoppingCart{
+    type:Schemas.Types.ObjectID,
+    ref:'ShoppingCart'
+    (need to take the ShoppingCart ID)
+}
+
+
+6:Collection: Order :-------------
+-------------------------------------------
+*ID automaticly created
+a.CusmuterID-card:{
+    type:Schemas.Types.ObjectID,
+    ref:'Cusmuter/Mannager'
+}
+b.ShoppingCart:{
+    type:Schemas.Types.ObjectID,
+    ref:'ShoppingCart',
+}
+c.TotalSum{
+    type:Schemas.Types.ObjectID,
+    ref:'ShoppingCart-ITEM/Product',
+    (take the price * amount)
+}
+d.shippingAdress:{
+    type:Schemas.Types.ObjectID,
+    ref:'Cusmuter/Mannager',
+    (filter street and city)
+}
+e.Date:Date picker
+f.Date of buy: Date.now()
+g.4 last digits of credit card:number
+(count) agirgation
+
+Fucking endless project.
+
+Routes:
+1.GET/ all Products
+
+2.GET/ all Categories
+
+3.GET/ ShoppingCart-Products/:CusmuterID
+* many to one
+
+4.GET/ Order/:CusmuterID
+
+5.GET/ Products/:categoriyID
+
+6.POST REGISTER-get token/session-validaiton for all fields.
+7.POST LOGIN
+8.PUT/ ShoppingCart-Products/:CusmuterID
+9.DELETE/all
+9.DELETE/ProductID
+
+GET/ Cusmuter/:id
+
+/Uptade the Order count when user press Order count
+
+/POST add Product as Cusmuter
+/POST For ShoppingCart as Cusmuter
+/POST For Order as Cusmuter
+
+/POST add Product as admin
+/PUT add Product as admin
+א. מנהל – אדמין, אחראי לניהול שוטף של המערכת, הוספת מוצרים או עריכת מוצרים.
+ב. לקוח – יכולת הרשמה, חיפוש, בחירת מוצרים, שמירת עגלה ורכישה – ביצוע הזמנה
+
+mongoDB auth tricks:
+unique:true,
+requierd:true
+add this to the AUTH part of the project.
+
+const arrayOfUsers = async () => {
+  try {
+    const users = await Users_Model.find().populate({
+      path: "task",
+    });
+    return users;
+  } catch (error) {
+    console.log(["Server error", erorr]);
+  }
+};

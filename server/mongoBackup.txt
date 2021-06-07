@@ -1,0 +1,166 @@
+
+//Users collection
+const initUsers=async()=>{
+  const admin= new Users_Model({
+    first_name:'admin',
+    last_name:'admin',
+    email:'admin@gmail.com',
+    ID:207331133,
+    password:'admin'
+  })
+
+  await admin.save()
+
+  
+  const oryan=await new Users_Model({
+    first_name:'oryan',
+    last_name:'baruch',
+    email:'oryanb321@gmail.com',
+    ID:207331133,
+    password:'111',
+    city:'Modiin',
+    street:'Leshem 59/12',
+  })
+
+  await oryan.save()
+}
+
+//Categories collection:
+
+const initCategories=async ()=>{
+  const Laptops=new Category_Model({
+    name:'Laptops'
+  })
+
+  await Laptops.save()
+
+  const Pcs=new Category_Model({
+    name:`Pc's`
+  })
+
+  await Pcs.save()
+
+  const Smartphones=new Category_Model({
+    name:'Smartphones'
+  })
+
+  await Smartphones.save()
+
+  const Headphones=new Category_Model({
+    name:'Headphones'
+  })
+
+  await Headphones.save()
+
+  const Tellevisions=new Category_Model({
+    name:'Tellevisions'
+  })
+
+  await Tellevisions.save()
+
+}
+
+//product collection:
+const initProducts=async()=>{
+  const Gamers=new Product_Model({
+    name:'Gamers PC',
+    category:"600dbc5e6f37d481149f01d2",
+    price:8000,
+    photo_url:'https://img1.gratispng.com/20180619/gjy/kisspng-megaport-pc-gamer-amd-fx-6100-gaming-computer-desk-spec-5b28e48c63b416.3401801315294066044084.jpg'
+  })
+
+  await Gamers.save()
+
+  const asus=new Product_Model({
+    name:'Asus PC',
+    category:"600dbc5e6f37d481149f01d2",
+    price:9200,
+    photo_url:'https://i.pinimg.com/originals/b0/f5/8b/b0f58b7b2e389596fe2bb4658067122b.png'
+  })
+
+  await asus.save()
+
+  const Iphone=new Product_Model({
+    name:'Iphone 12 pro max',
+    category:"600dbc5e6f37d481149f01d3",
+    price:1500,
+    photo_url:'https://shop.ee.co.uk/content/dam/everything-everywhere/images/SHOP/affiliates/apple/iPhone_12_Pro_Max_PacificBlue_800x800.png'
+  })
+
+  await Iphone.save()
+
+  const Galaxy=new Product_Model({
+    name:'Galaxy',
+    category:"600dbc5e6f37d481149f01d3",
+    price:1300,
+    photo_url:'https://cellcomshop.cellcom.co.il/pub/media/catalog/product/cache/b8e43b67ccbb6ff8f872deb3a434a8cc/_/4/_4_9.png'
+  })
+  await Galaxy.save()
+
+  const Note=new Product_Model({
+    name:'Note 20 Ultra',
+    category:"600dbc5e6f37d481149f01d3",
+    price:1500,
+    photo_url:'https://www.ivory.co.il/files/catalog/org/1607326007g07NA.jpg'
+  })
+
+  await Note.save()
+
+  const Airpods=new Product_Model({
+    name:'Airpods Pro',
+    category:"600dbc5e6f37d481149f01d4",
+    price:500,
+    photo_url:'https://dlb99j1rm9bvr.cloudfront.net/airpods-pro/parts/angle-1/model/size-1000/bg.png'
+  })
+
+  await Airpods.save()
+
+  const Jabra=new Product_Model({
+    name:'Jabra Elite 85 Active',
+    category:"600dbc5e6f37d481149f01d4",
+    price:400,
+    photo_url:'https://www.ivory.co.il/files/catalog/org/1593516202i02Ie.jpg'
+  })
+
+  await Jabra.save()
+
+  const Boss=new Product_Model({
+    name:'Boss',
+    category:"600dbc5e6f37d481149f01d4",
+    price:750,
+    photo_url:'https://www.ivory.co.il/files/catalog/org/1603271634u34Ih.jpg'
+  })
+
+  await Boss.save()
+  //
+
+  const Samsung=new Product_Model({
+    name:'Samsung',
+    category:"600dbc5e6f37d481149f01d5",
+    price:1750,
+    photo_url:'https://images.samsung.com/is/image/samsung/ca-qled-q800t-qn75q800tafxzc-frontblack-219459316?$720_576_PNG$'
+  })
+
+  await Samsung.save()
+
+  const Lg=new Product_Model({
+    name:'Lg',
+    category:"600dbc5e6f37d481149f01d5",
+    price:2750,
+    photo_url:'https://cdn-files.kimovil.com/default/0004/38/thumb_337319_default_big.png'
+  })
+
+  await Lg.save()
+
+  const Toshiba=new Product_Model({
+    name:'Toshiba',
+    category:"600dbc5e6f37d481149f01d5",
+    price:2250,
+    photo_url:'https://assets.products-live.ao.com/Images/0cd45718-aab6-439f-8967-28440a73128b/1280x1280/24WD3A63DB_toshiba_ledtv__01.png'
+  })
+
+  await Toshiba.save()
+//
+
+}
+

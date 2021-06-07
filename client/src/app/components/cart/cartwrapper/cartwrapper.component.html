@@ -1,0 +1,19 @@
+<mat-sidenav-container class="cartWarpper__contianer">
+  <mat-sidenav #sidenav mode='side' class="side__bar" >
+    <app-sidebar ></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content class="homepage">
+    <div class="search">
+      <app-search></app-search>
+    </div>
+    <div class="button_group">
+      <button 
+      mat-flat-button color="primary" 
+      (click)="sidenav.toggle()">
+     {{AuthServiceService.userInfo.Role ?  "Add product" : "Open cart"}}
+    </button>
+</div>
+    <app-homepage>
+    </app-homepage>
+  </mat-sidenav-content>
+</mat-sidenav-container>

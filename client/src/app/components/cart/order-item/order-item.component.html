@@ -1,0 +1,34 @@
+<h3><strong>My cart: </strong></h3>
+<mat-card class="sidebar__header">
+  <mat-search-bar (input)="Marker_Search_Results($event)"> </mat-search-bar>
+</mat-card>
+<mat-card
+  class="my_cart_container"
+  *ngFor="let value of CartService.shoppingCartProducts"
+  [search_values]="search_values"
+  [id]="value.cartID"
+>
+<div class="order_items">
+
+  <p [appHighlight]='search_values'  ngClass='h4'>
+    Product:{{ value.product.name }}
+  </p>
+  <p [appHighlight]='search_values' >
+    Amount: {{ value.amount }}
+  </p>
+  <p [appHighlight]='search_values'>
+    Price:  {{ value.product.price }}
+  </p>
+  <p [appHighlight]='search_values'>
+    Sum: {{ value.amount * value.product.price }} 
+  </p>
+  <img
+  ngClass="product_image"
+  src="{{ value.product.photo_url }}"
+  alt="productImage"
+  />
+</div>
+</mat-card>
+<mat-card-footer ngClass='footer'>
+  <p >Total sum of cart: {{ CartService.totalSum }} $</p>
+</mat-card-footer>

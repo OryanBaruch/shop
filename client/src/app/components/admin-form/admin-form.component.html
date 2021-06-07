@@ -1,0 +1,66 @@
+<div class="form__container">
+  <mat-card>
+    <form 
+    [formGroup]="myForm" 
+    ngClass='form'
+    (ngSubmit)="handleAddAdminControl()">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="New name..." formControlName="name" />
+        <mat-hint>Enter New name</mat-hint>
+        <mat-error *ngIf="myForm.controls.name.errors?.required"
+          >New name must be provided</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Category:</mat-label>
+        <mat-select ngClass='select' formControlName='category'>
+          <mat-option value='' selected disabled>
+          </mat-option>
+            <mat-option *ngFor='let category of ProductService.categories' [value]="category._id">
+              {{category.name}}
+            </mat-option>
+        </mat-select>
+        <mat-hint>Enter New name</mat-hint>
+        <mat-error *ngIf="myForm.controls.category.errors?.required"
+          >Category must be provided</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>price</mat-label>
+        <input
+          type="number"
+          matInput
+          placeholder="Change price..."
+          formControlName="price"
+        />
+        <mat-hint>Enter New price</mat-hint>
+        <mat-error *ngIf="myForm.controls.price.errors?.required"
+          >Price must be provided</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>New photo</mat-label>
+        <input
+          matInput
+          placeholder="Which category..."
+          formControlName="photo_url"
+        />
+        <mat-hint>Enter New Image</mat-hint>
+        <mat-error *ngIf="myForm.controls.photo_url.errors?.required"
+          >Photo must be provided</mat-error
+        >
+      </mat-form-field>
+      <button
+        ngClass="adminAddController"
+        mat-raised-button
+        color="primary"
+        type="submit"
+      >
+        Add
+      </button>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,75 @@
+<div ngClass="form__container">
+  <form
+    ngClass="form"
+    [formGroup]="myForm"
+    (ngSubmit)="handleRegisterPartOne()"
+  >
+  <h1>Start your journey, join the community of e-commers shoppers.</h1>
+    <mat-card>
+      <mat-form-field appearance="outline">
+        <mat-label>ID</mat-label>
+        <input matInput placeholder="ID..." formControlName="id" />
+        <mat-icon matSuffix> person </mat-icon>
+        <mat-hint>Enter your ID number</mat-hint>
+        <mat-error *ngIf="myForm.controls.id.errors?.required"
+          >ID number must be provided</mat-error
+        >
+        <mat-error *ngIf="myForm.controls.id.errors?.minlength"
+          >ID number must at least 9 characters</mat-error
+        >
+        <mat-error *ngIf="myForm.controls.id.invalid">Numbers only</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email.." formControlName="email" />
+        <mat-icon matSuffix> mail </mat-icon>
+        <mat-hint>Enter your E-Mail</mat-hint>
+        <mat-error *ngIf="myForm.controls.email.errors?.required"
+          >Email must be provided
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="password.." formControlName="password" />
+        <mat-icon matSuffix> fingerprint </mat-icon>
+        <mat-hint>Enter your password</mat-hint>
+        <mat-error *ngIf="myForm.controls.password.errors?.required"
+          >Password must be provided</mat-error
+        >
+        <mat-error *ngIf="myForm.controls.password.errors?.minlength"
+          >Password must at least 3 characters</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>confirm password</mat-label>
+        <input
+        type="password"
+          matInput
+          placeholder="confirm password.."
+          formControlName="confirm_password"
+        />
+        <mat-icon matSuffix> repeat </mat-icon>
+        <mat-hint>Re-enter your password</mat-hint>
+        <mat-error *ngIf="myForm.controls.confirm_password.errors?.required"
+          >Password must be provided</mat-error
+        >
+        <mat-error *ngIf="myForm.controls.confirm_password.errors?.minlength"
+          >Password must at least 3 characters</mat-error
+        >
+      </mat-form-field>
+
+      <button
+        mat-flat-button
+        type="submit"
+        color="primary"
+        [disabled]="myForm.invalid"
+      >
+        Continue
+      </button>
+      <p>have an account already? <a routerLink="/Login">Login</a></p>
+    </mat-card>
+  </form>
+</div>

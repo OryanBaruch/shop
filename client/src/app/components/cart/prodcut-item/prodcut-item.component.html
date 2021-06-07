@@ -1,0 +1,51 @@
+<div
+  class="products_by_category"
+  *ngFor="let product of ProductService.products"
+  [id]="product._id"
+>
+  <mat-card>
+    <mat-card-header>
+      <h3>Model: {{ product.name }}</h3>
+    </mat-card-header>
+    <h3> Price: {{ product.price }} $</h3>
+    <img src="{{ product.photo_url }}" alt="image" class="image" />
+    <div>
+    </div>
+    <div class="card_footer">
+
+      <div class="condition" *ngIf="AuthServiceService.userInfo?.Role==false; else elseBlock">
+        <mat-form-field floatLabel='never' appearance='outline' >
+          <mat-label>Choose amount</mat-label>
+          <input
+          ngClass="input"
+          matInput
+          type="number"
+          min="1"
+          [value]='1'
+          (change)="getValue($event)"
+          />
+        </mat-form-field>
+        <button
+        ngClass="add"
+        color="primary"
+        mat-fab
+        (click)="handleAdd(product._id)"
+        >
+        <mat-icon ngClass='add' color="white">add</mat-icon>
+      </button>
+    </div>
+    <ng-template class="adminContorlls" #elseBlock>
+      <button
+      ngClass="button__add"
+      color="accent"
+      mat-fab
+      aria-label="like"
+      (click)='handleEdit(product);'
+      >
+      <mat-icon
+      color="black">edit</mat-icon>
+    </button>
+  </ng-template>
+</div>
+</mat-card>
+</div>

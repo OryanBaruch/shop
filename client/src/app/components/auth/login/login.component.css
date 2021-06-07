@@ -1,0 +1,81 @@
+.form, .form__container{
+    margin-top: 0.2em;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    justify-self: center;
+    align-items: center;
+}
+
+.form{
+    display: flex;
+    margin-bottom: 25em !important;
+}
+
+.form__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    row-gap: 10px;
+    column-gap: 10px;
+    background-image: url('https://mewallpaper.com/thumbnail/abstract/3874-grid-hexagonal-white-hd-download-hq-wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.shoppoing_cart_alert{
+    border-radius: 0% 40% 0  40%!important;
+}
+ .shoppoing_cart_alert, .about__us{
+    height: 70vh;
+}
+
+.button{
+    margin-bottom: 10px;
+}
+
+mat-card{
+    background-color: rgba(214, 214, 214, 0.341);
+    border-radius: 2%;
+}
+
+.shoppoing_cart_alert:hover ,mat-card:hover{
+    background-color: rgba(254, 254, 254, 0.841);
+    transition: 0.3s;
+}
+
+
+form{
+    border-radius: 5%;
+    background-image: url('https://i.pinimg.com/originals/66/27/fe/6627fe46c0180aa255e3098f8a4d3603.jpg') !important;
+    background-size: cover;
+
+}
+
+.about__us{
+    display: flex;
+    flex-direction: column; 
+
+}
+
+img{
+    width: 15vw;
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.shoppoing_cart_alert{
+    background-color: rgba(255, 255, 255, 0.378);
+    height: 30vh;
+    margin-bottom: 58%;
+    border-radius: 1% ;
+}
+
+.about_us_content{
+    color: rgb(53, 53, 53);
+}
+
+p{
+    font-size: large;
+}

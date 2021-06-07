@@ -1,0 +1,26 @@
+
+.cartWarpper__contianer{
+    height: 84.75vh;
+    background-color: rgba(52, 146, 255, 0.1);
+}
+
+.mat-sidenav, .mat-sidenav-content{
+    padding: 16px;
+}
+
+.mat-sidenav{
+    background-color: rgba(124, 195, 253, 0.3);
+    width: 35vw;
+}
+
+.search{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.button_group{
+    display: flex;
+    justify-content: space-evenly;
+    width: 15vw;
+}

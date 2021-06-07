@@ -1,0 +1,21 @@
+
+
+.category__buttons{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 4vw;
+height: 7vh;
+border-radius: 20%;
+}
+
+.product__item{
+    display: flex;
+    column-gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+}
+
+app-prodcut-item{
+}
