@@ -9,3 +9,6 @@ Added: Recipt, Desing
 Left: NONE
 
 Made with Angualr, NodeJS, mongoose.
+
+Watch my project :
+https://oryanbaruch.github.io/shop/
